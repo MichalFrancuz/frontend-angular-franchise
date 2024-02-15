@@ -1,0 +1,65 @@
+<body class="home-content">
+  <section>
+    <div class="left-side">
+      <title>{{ title }}</title>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      <div class="pill-group">
+        <p *ngIf="loading">Loading...</p>
+        <table *ngIf="!loading && franchises.length">
+          <thead>
+            <tr>
+              <th><h2>&nbsp;&nbsp;ID&nbsp;&nbsp;</h2></th>
+              <th>
+                <h2>&nbsp;&nbsp;Name&nbsp;&nbsp;</h2>
+              </th>
+              <th><h2>&nbsp;&nbsp;Address&nbsp;&nbsp;</h2></th>
+              <th><h2>&nbsp;&nbsp;Website&nbsp;&nbsp;</h2></th>
+              <th><h2>&nbsp;&nbsp;Founded&nbsp;&nbsp;</h2></th>
+              <th><h2>&nbsp;&nbsp;Investment&nbsp;&nbsp;</h2></th>
+              <th><h2>&nbsp;&nbsp;Franchise fee&nbsp;&nbsp;</h2></th>
+              <th><h2>&nbsp;&nbsp;Type&nbsp;&nbsp;</h2></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let franchise of franchises">
+              <td>
+                <h5>&nbsp;&nbsp;{{ franchise.id }}&nbsp;&nbsp;</h5>
+              </td>
+              <td>
+                <h5>&nbsp;&nbsp;{{ franchise.name }}&nbsp;&nbsp;</h5>
+              </td>
+              <td>
+                <h5>&nbsp;&nbsp;{{ franchise.address }}&nbsp;&nbsp;</h5>
+              </td>
+              <td>
+                <h5>
+                  &nbsp;&nbsp;<a
+                    href="http://{{ franchise.website }}"
+                    target="_blank"
+                    >{{ franchise.website }}</a
+                  >&nbsp;&nbsp;
+                </h5>
+              </td>
+              <td>
+                <h5>&nbsp;&nbsp;{{ franchise.founded }}&nbsp;&nbsp;</h5>
+              </td>
+              <td>
+                <h5>&nbsp;&nbsp;{{ franchise.investment }}&nbsp;&nbsp;</h5>
+              </td>
+              <td>
+                <h5>&nbsp;&nbsp;{{ franchise.franchiseFee }}&nbsp;&nbsp;</h5>
+              </td>
+              <td>
+                <h5>&nbsp;&nbsp;{{ franchise.type }}&nbsp;&nbsp;</h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="!loading && !franchises.length">No franchises available.</p>
+      </div>
+    </div>
+  </section>
+</body>
